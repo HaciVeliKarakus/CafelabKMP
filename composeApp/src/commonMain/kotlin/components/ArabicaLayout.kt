@@ -5,13 +5,17 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.BottomNavigation
 import androidx.compose.material.Card
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -37,11 +41,17 @@ fun <T : BaseDataClass> ArabicaLayout(
     onSearch: (String) -> Unit,
     itemLayout: @Composable (T) -> Unit
 ) {
-    SuperSearchBar(combinedData.uiState.searchText, onSearch)
-    AnimatedContent(combinedData.loading) {
-        when (it) {
-            true -> RotatingLogo()
-            false -> ContentUI(combinedData.uiState, itemLayout)
+    Scaffold (
+        topBar = {
+            SuperSearchBar(combinedData.uiState.searchText, onSearch)
+        }
+    ){
+        AnimatedContent(combinedData.loading) {
+            when (it) {
+                true -> RotatingLogo()
+                false -> ContentUI(combinedData.uiState, itemLayout)
+            }
+            Spacer(modifier = Modifier.height(100.dp))
         }
     }
 }

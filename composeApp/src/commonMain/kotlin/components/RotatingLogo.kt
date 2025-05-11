@@ -8,7 +8,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -17,9 +16,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import cafelabkmp.composeapp.generated.resources.Res
+import cafelabkmp.composeapp.generated.resources.loading
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 
@@ -50,10 +49,10 @@ fun RotatingLogo() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-//        Image(
-//            painter = painterResource(Res.drawable.loading),
-//            contentDescription = null,
-//            modifier = Modifier.rotate(rotation.value).clip(CircleShape)
-//        )
+        Image(
+            painter = painterResource(Res.drawable.loading),
+            contentDescription = null,
+            modifier = Modifier.rotate(rotation.value)
+        )
     }
 }

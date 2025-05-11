@@ -11,7 +11,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
@@ -22,15 +21,12 @@ import screens.branch.BranchScreen
 import screens.course.CourseScreen
 import screens.product.ProductScreen
 import screens.shop.ShopScreen
-
-//import cafelabkmp.composeapp.generated.resources.Res
-//import cafelabkmp.composeapp.generated.resources.compose_multiplatform
+import themes.Colors
 
 @Composable
 @Preview
 fun App() {
-    val primary = Color(27, 56, 74)
-    MaterialTheme(colors = MaterialTheme.colors.copy(primary = primary)) {
+    MaterialTheme(colors = MaterialTheme.colors.copy(primary = Colors.primary)) {
         AppContent()
     }
 }
